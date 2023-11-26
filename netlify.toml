@@ -1,0 +1,7 @@
+[build]
+  base = "tyche"
+  command = "python manage.py collectstatic --noinput"
+  publish = "staticfiles"
+
+[context.production.environment]
+  DJANGO_SETTINGS_MODULE = "tyche.settings.production"
