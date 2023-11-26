@@ -1,7 +1,12 @@
 [build]
-  base = "."
-  command = "python manage.py collectstatic --noinput"
-  publish = "staticfiles"
+  base = "."  # Represents the root folder
+  command = "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+  publish = "staticfiles"  # Assuming this is where your static files are collected
+  functions = "netlify/functions/"  # If you have Netlify functions
+  environment = { DJANGO_SETTINGS_MODULE = "tyche.settings" }  # Set your Django settings module
 
 [context.production.environment]
-  DJANGO_SETTINGS_MODULE = "tyche.settings.production"
+  DJANGO_SETTINGS_MODULE = "tyche.settings"  # Set your Django settings module for production
+
+[context.deploy-preview.environment]
+  DJANGO_SETTINGS_MODULE = "tyche.settings"  # Set your Django settings module for deploy previews
