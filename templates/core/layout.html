@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title class="brand">{% block title %}Tyche{% endblock %}</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="{% static 'tyche/styles.css' %}" rel="stylesheet" />
+    <script src="{% static 'nav.js' %}"></script>
+  </head>
+  <body>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="brand">Tyche</p>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}" aria-hidden="true">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'budgeting' %}" aria-hidden="true">Budgeting</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'credit-cards' %}" aria-hidden="true">Credit Cards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'compound-calculator' %}" aria-hidden="true"
+            >Compound Interest Calculator</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'emergency-fund' %}" aria-hidden="true"
+            >Emergency Fund</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'mortgages' %}" aria-hidden="true">Mortgages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pensions' %}" aria-hidden="true">Pensions</a>
+        </li>
+      </ul>
+    </nav>
+    {% block body %} {% endblock %}
+
+    <footer class="footer">
+      <div class="footer_container">
+        <p class="footer_para">© 2023 Tyche. All rights reserved.</p>
+        <p class="footer_built">This is not financial advice.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

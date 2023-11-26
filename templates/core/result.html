@@ -1,0 +1,41 @@
+{% extends "core/layout.html" %} 
+{% block title %}Compound Interest Calculator | Tyche{% endblock %} 
+{% block description %}Learn what your investments could get you in the long term. Get insights to improve your financial well-being.{% endblock %} 
+
+{% block body %}
+<div class="result-container">
+  <div class="result-content">
+    <h1 class="result-main-heading">Investment Results</h1>
+
+    <h3 class="result">
+      After {{ number_of_years }} years, your investment is worth £{{ total_result }}
+    </h3>
+
+    <div class="table-container">
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Interest</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in yearly_results.items %}
+          <tr>
+            <th scope="row">{{ key }}</th>
+            <td>{{ value.interest }}</td>
+            <td>{{ value.total }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <form method="POST" class="calc-form">
+      {% csrf_token %} 
+      {{ form.as_p }}
+    </form>
+  </div>
+</div>
+{% endblock %}

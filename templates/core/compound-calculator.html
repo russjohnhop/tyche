@@ -1,0 +1,16 @@
+{% extends "core/layout.html" %} 
+
+{% block body %}
+<div class="calc-div">
+  <div>
+    <h1 class="calc-header">Compound Interest Calculator</h1>
+
+    <form class="calculator" method="POST">
+      {% csrf_token %} {{ form.as_p }}
+
+      <button class="calc-btn" type="submit">Calculate</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
